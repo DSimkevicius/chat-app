@@ -1,0 +1,50 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0.3;
+}
+
+.sidebar_search {
+  display: flex;
+  align-items: center;
+  background-color: #f6f6f6;
+  height: 2.25rem;
+  padding: 0.75rem;
+}
+
+.sidebar_searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height: 2rem;
+  border-radius: 1.25rem;
+}
+
+.sidebar_searchContainer > .MuiSvgIcon-root {
+  color: gray;
+}
+
+.sidebar_searchContainer > input {
+  border: none;
+  margin-left: 0.6rem;
+}
+
+.sidebar_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25rem;
+  border-right: 1px solid lightgray;
+}
+
+.sidebar_headerRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 10vw;
+}
+
+.sidebar_headerRight > .MuiSvgIcon-root {
+  margin-right: 2vw;
+  font-size: 1.75rem !important;
+}
