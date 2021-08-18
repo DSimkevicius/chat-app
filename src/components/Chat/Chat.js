@@ -5,10 +5,24 @@ import { AttachFile, SearchOutlined } from "@material-ui/icons";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import db from "../../firebase";
+import { useParams } from "react-router-dom";
 
 function Chat() {
   const [input, setInput] = useState("");
   const [seed, setSeed] = useState("");
+  const { roomId } = useParams();
+  const [roomName, setRoomName] = useState("");
+
+  useEffect(() => {
+    if (roomId) {
+      db.collection("rooms")
+        .doc(roomId)
+        .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
+    }
+  }, [roomId]);
+
+  useParams("");
 
   useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));
@@ -26,10 +40,12 @@ function Chat() {
     <div className="chat">
       <div className="chat_header">
         <Avatar
-          src={`https://avatars.dicebear.com/api/avataaars/${seed}.svg`}
+          src={`https://avatars.dicebear.com/api/avataaars/${Math.floor(
+            Math.random() * 5000
+          )}.svg`}
         />
         <div className="chat_headerInfo">
-          <h3>Room name</h3>
+          <h3>{roomName}</h3>
           <p>Last seen at ...</p>
         </div>
         <div className="chat_headerRight">
