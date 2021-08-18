@@ -29,7 +29,6 @@ function SidebarChat({ id, name, addNewChat }) {
         />
         <div className="sidebarChat_info">
           <h2>{name}</h2>
-          <p>Last message...</p>
         </div>
       </div>
     </Link>
