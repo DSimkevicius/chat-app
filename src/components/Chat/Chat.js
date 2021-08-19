@@ -8,6 +8,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import db from "../../firebase";
 import { useParams } from "react-router-dom";
 import { useStateValue } from "../../StateProvider";
+import FetchedData from "../FetchedData/FetchedData";
 import firebase from "firebase";
 
 function Chat() {
@@ -83,6 +84,9 @@ function Chat() {
         </div>
       </div>
       <div className="chat_body">
+        <p className="chat_message">
+          <FetchedData />
+        </p>
         {messages.map((message) => (
           <p
             className={`chat_message ${
@@ -97,6 +101,7 @@ function Chat() {
           </p>
         ))}
       </div>
+
       <div className="chat_footer">
         <InsertEmoticonIcon />
         <form>
